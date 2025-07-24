@@ -1,19 +1,32 @@
 name: Checkmarx One Scan
+
 on:
   push:
     branches:
       - master
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Checkmarx One CLI Action
-        uses: checkmarx/ast-github-action@main #Github Action version
+
+      - name: Run Checkmarx One CLI Action
+        uses: checkmarx/ast-github-action@main
         with:
-          project_name: <Name of Checkmarx One Project>
+          project_name: "<Name of Checkmarx One Project>" # Replace with your project name
           cx_tenant: mallorycx1
           base_uri: https://ast.checkmarx.net/
           cx_client_id: ${{ secrets.CX_CLIENT_ID }}
           cx_client_secret: ${{ secrets.CX_CLIENT_SECRET }}
+
+      - name: Run Checkmarx DAST scan in Docker
+        run: |
+          docker run --pull=always \
+            -e CX_APIKEY=${{ secrets.CX_APIKEY }} \
+            checkmarx/dast:latest \
+            scan \
+            --environment-id=${{ secrets.ENV_ID }}  \
+            --base-url=${{ secrets.BASE_URL }}\
+            --output=/tmp
