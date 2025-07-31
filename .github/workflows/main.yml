@@ -15,7 +15,7 @@ jobs:
       - name: Run Checkmarx One CLI Action
         uses: checkmarx/ast-github-action@main
         with:
-          project_name: "<Name of Checkmarx One Project>" # Replace with your project name
+          project_name: ${{ github.repository }} # Replace with your project name
           cx_tenant: mallorycx1
           base_uri: https://ast.checkmarx.net/
           cx_client_id: ${{ secrets.CX_CLIENT_ID }}
