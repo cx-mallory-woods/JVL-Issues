@@ -52,7 +52,7 @@
         <servlet-name>xxe</servlet-name>
         <servlet-class>org.cysecurity.cspf.jvl.controller.xxe</servlet-class>
     </servlet>
-   
+
     <servlet-mapping>
         <servlet-name>Install</servlet-name>
         <url-pattern>/Install</url-pattern>
@@ -101,5 +101,5 @@
         <servlet-name>xxe</servlet-name>
         <url-pattern>/xxe.do</url-pattern>
     </servlet-mapping>
-   
+
 </web-app>

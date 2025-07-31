@@ -44,19 +44,19 @@ public class EmailCheck extends HttpServlet {
                 if(con!=null && !con.isClosed())
                 {
                     ResultSet rs=null;
-                    Statement stmt = con.createStatement();  
+                    Statement stmt = con.createStatement();
                     rs=stmt.executeQuery("select * from users where email='"+email+"'");
-                    if (rs.next()) 
-                    {  
-                     json.put("available", "1"); 
-                    }  
+                    if (rs.next())
+                    {
+                     json.put("available", "1");
+                    }
                     else
-                    {  
-                      json.put("available", new Integer(0));  
-                    }  
+                    {
+                      json.put("available", new Integer(0));
+                    }
                 }
                 out.print(json);
-        } 
+        }
         catch(Exception e)
         {
             out.print(e);
@@ -89,7 +89,7 @@ public class EmailCheck extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);

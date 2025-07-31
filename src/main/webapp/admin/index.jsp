@@ -8,5 +8,5 @@ else
  {
      response.sendRedirect("adminlogin.jsp");
  }
- %> 
+ %>
  <%@ include file="/footer.jsp" %>

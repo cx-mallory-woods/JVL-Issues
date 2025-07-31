@@ -25,15 +25,15 @@ if(session.getAttribute("isLoggedIn")!=null)
 		<br/>
     <%
  Connection con=new DBConnect().connect(getServletContext().getRealPath("/WEB-INF/config.properties"));
-   
-   String id=session.getAttribute("userid").toString();    //Gets User ID  
+
+   String id=session.getAttribute("userid").toString();    //Gets User ID
    String action=request.getParameter("action");
    try
    {
 
     if(action!=null && action.equalsIgnoreCase("add") )
     {
-        
+
         String cardno=request.getParameter("cardno");
         String cvv=request.getParameter("cvv");
         String expirydate=request.getParameter("expirydate");
@@ -41,7 +41,7 @@ if(session.getAttribute("isLoggedIn")!=null)
         {
          Statement stmt = con.createStatement();
          stmt.executeUpdate("INSERT into cards(id,cardno, cvv,expirydate) values ('"+id+"','"+cardno+"','"+cvv+"','"+expirydate+"')");
-         out.print("<b style='color:green'> * Card details added *</b>");   
+         out.print("<b style='color:green'> * Card details added *</b>");
         }
         else
         {
@@ -49,7 +49,7 @@ if(session.getAttribute("isLoggedIn")!=null)
         }
     }
 
-     out.print("<br/><br/><a href='"+path+"/myprofile.jsp?id="+id+"'>Return to Profile Page &gt;&gt;</a>"); 
+     out.print("<br/><br/><a href='"+path+"/myprofile.jsp?id="+id+"'>Return to Profile Page &gt;&gt;</a>");
 
     }
    catch(Exception e)
@@ -63,8 +63,8 @@ else
 }
 
   %>
-  
+
   <!-- CSRF  -->
 <!-- Insecure Direct Object Reference 2 -->
-  
+
  <%@ include file="/footer.jsp" %>

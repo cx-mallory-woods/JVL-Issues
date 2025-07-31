@@ -44,7 +44,7 @@ public class xxe extends HttpServlet {
           InputStream xml=request.getInputStream();
           DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
           DocumentBuilder builder = factory.newDocumentBuilder();
-          InputSource is = new InputSource(xml); 	
+          InputSource is = new InputSource(xml);
           Document doc = builder.parse(is);
           Element element = doc.getDocumentElement();
           NodeList nodes = element.getChildNodes();

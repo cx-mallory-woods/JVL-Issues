@@ -14,7 +14,7 @@ public class Users {
     Long id;
     String username;
     String about;
-    
+
     public Long getId() {
         return id;
     }
@@ -32,5 +32,5 @@ public class Users {
     }
     public void setAbout(String about) {
         this.about = about;
-    }   
+    }
 }

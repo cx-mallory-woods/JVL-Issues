@@ -1,6 +1,6 @@
 
  <%@ include file="header.jsp" %>
-   
+
  <%
  String username="";
  String password="";
@@ -18,13 +18,13 @@
 
  %>
 <form action="LoginValidator" method="post">
-<table> 
+<table>
     <tr><td>UserName: </td><td><input type="text" name="username" value="<%=username%>" /></td></tr>
 <tr><td>Password :</td><td><input type="text" name="password" value="<%=password%>"/></td></tr>
 <tr><td>Remember me: </td><td><input type="checkbox" name="RememberMe" checked/></td></tr>
 <tr><td><input type="submit" name="Login" value="Login"/></td></tr>
 <tr><td></td><td class="fail"><% if(request.getParameter("err")!=null){out.print(request.getParameter("err"));} %></td></tr>
-</table>  
+</table>
 </form>
   <br/>
   <a href="ForgotPassword.jsp">Forgot Password?</a>

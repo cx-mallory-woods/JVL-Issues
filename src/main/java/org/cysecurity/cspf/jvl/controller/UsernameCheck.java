@@ -44,19 +44,19 @@ public class UsernameCheck extends HttpServlet {
                 if(con!=null && !con.isClosed())
                 {
                     ResultSet rs=null;
-                    Statement stmt = con.createStatement();  
+                    Statement stmt = con.createStatement();
                     rs=stmt.executeQuery("select * from users where username='"+user+"'");
-                    if (rs.next()) 
-                    {  
-                     json.put("available", "1"); 
-                    }  
+                    if (rs.next())
+                    {
+                     json.put("available", "1");
+                    }
                     else
-                    {  
-                      json.put("available", new Integer(0));  
-                    }  
+                    {
+                      json.put("available", new Integer(0));
+                    }
                 }
                 out.print(json);
-        } 
+        }
         catch(Exception e)
         {
             out.print(e);

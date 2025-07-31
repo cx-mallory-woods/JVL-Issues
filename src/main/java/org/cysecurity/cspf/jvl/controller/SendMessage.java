@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.cysecurity.cspf.jvl.model.DBConnect;
- 
+
 /**
  *
  * @author breakthesec
@@ -34,7 +34,7 @@ public class SendMessage extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+
              try
              {
                  PrintWriter out = response.getWriter();
@@ -45,7 +45,7 @@ public class SendMessage extends HttpServlet {
                  String sender=request.getParameter("sender");
                     if(con!=null && !con.isClosed() && request.getParameter("send")!=null)
                         {
-                           //PreparedStatement to Prevent SQL Injection attack:       
+                           //PreparedStatement to Prevent SQL Injection attack:
                             PreparedStatement pstmt=con.prepareStatement("INSERT into UserMessages(recipient, sender, subject, msg) values (?,?,?,?)");
                             pstmt.setString(1, recipient);
                             pstmt.setString(2, sender);
@@ -53,21 +53,21 @@ public class SendMessage extends HttpServlet {
                             pstmt.setString(4, msg);
                             pstmt.executeUpdate();
                             response.sendRedirect(request.getContextPath()+"/vulnerability/SendMessage.jsp?status=<b style='color:green'>* Message successfully sent *</b>");
-                                    
+
                                }
                     else
                     {
                            response.sendRedirect(request.getContextPath()+"/vulnerability/SendMessage.jsp?status=<b style='color:red'>* Something Went Wrong</b>");
-                           
+
                     }
                 }
                catch(Exception ex)
                 {
                        response.sendRedirect(request.getContextPath()+"/vulnerability/SendMessage.jsp?status=<b style='color:red'>* Something Went Wrong</b><br/>"+ex);
-                           
-                }                 
-            
-       
+
+                }
+
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

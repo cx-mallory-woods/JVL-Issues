@@ -7,7 +7,7 @@ body {
 	background:url("images/bg.png") #000;
 	color: #FFF;
 	font-family: verdana, arial, sans-serif;
-	
+
 	text-align: left;
 	letter-spacing: 1px;
 }
@@ -37,7 +37,7 @@ p{	margin: 20px 0px 20px 0px;line-height: 16px;font-size: 14px;}
   box-shadow: 3px 3px 4px #000;
   -webkit-box-shadow: 2px 2px 3px #000;
   -moz-box-shadow: 2px 2px 3px #000;
- 
+
   border: solid 4px #FFF;
     margin-left: auto ;
   margin-right: auto ;
@@ -94,7 +94,7 @@ width:680px;
   -moz-box-shadow: 2px 2px 3px #666666;
   background: #000000;
   border: solid 4px #FFF;
-   border-bottom:none; 
+   border-bottom:none;
 }
 #menu-bar li {
   margin: 0 2px;

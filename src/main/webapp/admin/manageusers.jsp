@@ -7,14 +7,14 @@
 
  <%
    Connection con=new DBConnect().connect(getServletContext().getRealPath("/WEB-INF/config.properties"));
-    Statement stmt = con.createStatement(); 
+    Statement stmt = con.createStatement();
  if(request.getParameter("delete")!=null)
  {
-     String user=request.getParameter("user");      
-     stmt.executeUpdate("Delete from users where username='"+user+"'");                      
+     String user=request.getParameter("user");
+     stmt.executeUpdate("Delete from users where username='"+user+"'");
  }
- %>	
-<form action="manageusers.jsp" method="POST">	
+ %>
+<form action="manageusers.jsp" method="POST">
 <%
  ResultSet rs=stmt.executeQuery("select * from users where privilege='user'");
  while(rs.next())

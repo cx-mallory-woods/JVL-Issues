@@ -53,13 +53,13 @@ public class Register extends HttpServlet {
              {
                     if(con!=null && !con.isClosed())
                                {
-                                  
-                                   Statement stmt = con.createStatement();  
+
+                                   Statement stmt = con.createStatement();
                                   stmt.executeUpdate("INSERT into users(username, password, email, About,avatar,privilege,secretquestion,secret) values ('"+user+"','"+pass+"','"+email+"','"+about+"','default.jpg','user',1,'"+secret+"')");
                                        stmt.executeUpdate("INSERT into UserMessages(recipient, sender, subject, msg) values ('"+user+"','admin','Hi','Hi<br/> This is admin of this page. <br/> Welcome to Our Forum')");
-             
+
                                     response.sendRedirect("index.jsp");
-                                    
+
                                }
                     else
                     {
@@ -71,13 +71,13 @@ public class Register extends HttpServlet {
                           System.out.println("SQLException: " + ex.getMessage());
                          System.out.println("SQLState: " + ex.getSQLState());
                          System.out.println("VendorError: " + ex.getErrorCode());
-                           
+
                        }
-        
+
           }
         catch(Exception e)
         {
-            
+
         }
     }
 

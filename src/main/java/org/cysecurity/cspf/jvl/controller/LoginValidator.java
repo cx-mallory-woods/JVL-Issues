@@ -18,8 +18,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.cysecurity.cspf.jvl.model.DBConnect;
- 
- 
+
+
 
 /**
  *
@@ -38,8 +38,8 @@ public class LoginValidator extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-       
+
+
        String user=request.getParameter("username").trim();
           String pass=request.getParameter("password").trim();
            try
@@ -48,7 +48,7 @@ public class LoginValidator extends HttpServlet {
                     if(con!=null && !con.isClosed())
                                {
                                    ResultSet rs=null;
-                                   Statement stmt = con.createStatement();  
+                                   Statement stmt = con.createStatement();
                                    rs=stmt.executeQuery("select * from users where username='"+user+"' and password='"+pass+"'");
                                    if(rs != null && rs.next()){
                                    HttpSession session=request.getSession();
@@ -71,14 +71,14 @@ public class LoginValidator extends HttpServlet {
                                    {
                                           response.sendRedirect("ForwardMe?location=/login.jsp&err=Invalid Username or Password");
                                    }
-                                    
+
                                }
                 }
                catch(Exception ex)
                 {
                            response.sendRedirect("login.jsp?err=something went wrong");
                  }
-        
+
     }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

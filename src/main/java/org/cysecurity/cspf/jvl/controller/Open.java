@@ -45,7 +45,7 @@ public class Open extends HttpServlet {
         }
          catch(Exception e)
          {
-             
+
          }
     }
 

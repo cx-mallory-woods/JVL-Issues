@@ -12,7 +12,7 @@
 if(session.getAttribute("isLoggedIn")!=null)
 {
  Connection con=new DBConnect().connect(getServletContext().getRealPath("/WEB-INF/config.properties"));
-         
+
    String id=request.getParameter("id");
    if(id!=null && !id.equals(""))
    {
@@ -21,10 +21,10 @@ if(session.getAttribute("isLoggedIn")!=null)
              rs=stmt.executeQuery("select * from users where id="+id);
               if(rs != null && rs.next())
               {
-                out.print("UserName : "+rs.getString("username")+"<br>"); 
-                out.print("Email : "+rs.getString("email")+"<br>"); 
-                out.print("About : "+rs.getString("about")+"<br>"); 
-                 
+                out.print("UserName : "+rs.getString("username")+"<br>");
+                out.print("Email : "+rs.getString("email")+"<br>");
+                out.print("About : "+rs.getString("about")+"<br>");
+
                 //Getting Card Details:
                 ResultSet rs1=stmt.executeQuery("select * from cards where id="+id);
                  if(rs1 != null && rs1.next())
@@ -44,16 +44,16 @@ if(session.getAttribute("isLoggedIn")!=null)
    {
        out.print("ID Parameter is Missing");
    }
-     
+
    out.print("<br/><ul type='square'>");
    out.print("<li><a href='"+path+"/vulnerability/csrf/change-info.jsp'>Change Description</a></li>");
     out.print("<li><a href='"+path+"/vulnerability/csrf/changepassword.jsp'>Change Password</a></li>");
      out.print("<li><a href='"+path+"/vulnerability/idor/change-email.jsp'>Change Email</a></li>");
-      out.print("<li><a href='"+path+"/vulnerability/Messages.jsp'>Messages </a></li>"); 
-         out.print("<li><a href='"+path+"/vulnerability/SendMessage.jsp'>Send Message </a></li>"); 
+      out.print("<li><a href='"+path+"/vulnerability/Messages.jsp'>Messages </a></li>");
+         out.print("<li><a href='"+path+"/vulnerability/SendMessage.jsp'>Send Message </a></li>");
          out.print("</ul><br/>");
-    out.print("<br/><a href='"+path+"/vulnerability/forum.jsp'>Return to Forum &gt;&gt;</a>");     
-    
+    out.print("<br/><a href='"+path+"/vulnerability/forum.jsp'>Return to Forum &gt;&gt;</a>");
+
 }
 else
 {
@@ -61,5 +61,5 @@ else
 }
 
   %>
-  
+
  <%@ include file="/footer.jsp" %>
